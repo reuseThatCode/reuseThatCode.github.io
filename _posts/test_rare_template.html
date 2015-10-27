@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<header>
+<!-- <link rel="stylesheet" href="/Users/davidswanson/Documents/gns_data_viz/test.css"> -->
+<!-- <script src="/Users/davidswanson/survivalSens/extra/d3.v2.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/Statistics/Classes/Data Visualization Stat 221/pset2 unadulterated/visual/lib/d3/d3.v2.min.js"></script> -->
+
+
+<!-- "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js -->
+
+</header>
+
+<body>
+
+<h1 style="font-family: Helvetica">
+NECAP2
+</ht>
+
+<div>
+<button onclick=david1()> size </button>
+<button onclick=david2()> position </button>
+<button onclick=david3()> color </button>
+<!-- <button onclick=david4()> scale </button> -->
+</div>
+
+<div>
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/gns_data_viz/test_rare.json"></script> -->
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/gns_data_viz/test_rare.js"></script> -->
+
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/GNS/preterm_viz/new/test_rare.json"> -->
+
+
+<script type="text/javascript">
+
+
+d5 = [ { "maf" : 9, "p" : 0.517111140162518, "log_or" : 23.5471748569278 }, { "maf" : 6, "p" : 0.285935277409054, "log_or" : 106.284127546445 }, { "maf" : 5, "p" : 1.90087236165284, "log_or" : -6.16110148895157 }, { "maf" : 5, "p" : 0.4524804863741, "log_or" : -21.4792545950105 }, { "maf" : 6, "p" : 1.99655297260732, "log_or" : -37.0885603991043 }, { "maf" : 8, "p" : 2.15761142630684, "log_or" : 35.4874589808865 }, { "maf" : 5, "p" : 0.144188243996235, "log_or" : 40.5454630342488 }, { "maf" : 6, "p" : 1.08867362614692, "log_or" : 12.0714054097792 }, { "maf" : 9, "p" : 0.156985881422293, "log_or" : -91.4367170753266 }, { "maf" : 5, "p" : 2.16762952015071, "log_or" : -44.6725681553075 }, { "maf" : 7, "p" : 1.24928154487333, "log_or" : -42.4083103300784 }, { "maf" : 5, "p" : 1.4369938713509, "log_or" : -27.2853474130782 }, { "maf" : 6, "p" : 1.18108402415722, "log_or" : -39.9788285151215 }, { "maf" : 7, "p" : 0.0322243048073612, "log_or" : -39.5577308851352 }, { "maf" : 9, "p" : 1.17501073550237, "log_or" : 35.7966995472918 }, { "maf" : 5, "p" : 2.13346923912548, "log_or" : -46.7363208650502 }, { "maf" : 8, "p" : 1.01319002578891, "log_or" : 3.23393395054856 }, { "maf" : 5, "p" : 0.310985728709785, "log_or" : 17.1242619757147 }, { "maf" : 8, "p" : 0.620810293999906, "log_or" : -27.5719774297535 }, { "maf" : 10, "p" : 0.485872524666459, "log_or" : -33.1292775571325 }, { "maf" : 9, "p" : 1.1237815726213, "log_or" : 49.384963968276 }, { "maf" : 7, "p" : 0.534101831796434, "log_or" : -49.0012175868106 }, { "maf" : 7, "p" : 0.193518209165609, "log_or" : 55.3683411181888 }, { "maf" : 7, "p" : 0.343134396406852, "log_or" : 93.5903951472368 }, { "maf" : 7, "p" : 4.42722953981967, "log_or" : -36.1058513903052 }, { "maf" : 5, "p" : 0.321773289448223, "log_or" : -26.4318669264287 }, { "maf" : 9, "p" : 0.611355509649213, "log_or" : 67.4868249272531 }, { "maf" : 7, "p" : 0.00422826879877624, "log_or" : -33.9240197061795 }, { "maf" : 8, "p" : 0.667636520530748, "log_or" : -77.6468302967006 }, { "maf" : 7, "p" : 1.73237251149781, "log_or" : -7.79148386841373 }, { "maf" : 6, "p" : 0.2594594292338, "log_or" : 23.8429237058615 }, { "maf" : 9, "p" : 0.784449972525749, "log_or" : 3.25930019847768 }, { "maf" : 5, "p" : 0.145249310155019, "log_or" : 54.2095675117634 }, { "maf" : 6, "p" : 0.806629578985594, "log_or" : 17.6236977143954 }, { "maf" : 5, "p" : 0.0674798764574915, "log_or" : 33.590010112293 }, { "maf" : 5, "p" : 0.692191392238788, "log_or" : 67.0261841445874 }, { "maf" : 8, "p" : 0.761829897122662, "log_or" : 25.5934708563283 }, { "maf" : 7, "p" : 0.473981030706956, "log_or" : 41.3298652886141 }, { "maf" : 10, "p" : 0.324485374611102, "log_or" : -61.8861448011784 }, { "maf" : 6, "p" : 1.20735945687338, "log_or" : 77.0924105096384 }, { "maf" : 6, "p" : 0.027059355976179, "log_or" : 32.4832519581109 }, { "maf" : 7, "p" : 0.729132436851669, "log_or" : 9.31556011154118 }, { "maf" : 8, "p" : 0.0119886571912601, "log_or" : -17.8907969391526 }, { "maf" : 5, "p" : 0.146346518252709, "log_or" : -29.7024703684823 }, { "maf" : 8, "p" : 2.85122577941997, "log_or" : -22.6917163106067 }, { "maf" : 6, "p" : 0.761752988544658, "log_or" : 21.2793955369298 }, { "maf" : 6, "p" : 0.403019605311729, "log_or" : 43.2837692254386 }, { "maf" : 7, "p" : 6.63471958714857, "log_or" : -33.8636351968372 }, { "maf" : 6, "p" : 0.0354094290942496, "log_or" : 43.4804164164343 }, { "maf" : 8, "p" : 1.37717048453823, "log_or" : -23.7216121122017 }, { "maf" : 8, "p" : 0.709639663731278, "log_or" : -1.37354995649562 }, { "maf" : 8, "p" : 1.4414127558471, "log_or" : -6.9343528317327 }, { "maf" : 6, "p" : 0.111650844561508, "log_or" : -63.2741018608568 }, { "maf" : 7, "p" : 3.47469098408976, "log_or" : 65.6945703651958 }, { "maf" : 6, "p" : 0.102553397515665, "log_or" : -53.4054976412623 }, { "maf" : 6, "p" : 1.41460078525468, "log_or" : 3.09721925618442 }, { "maf" : 7, "p" : 1.72516781522268, "log_or" : 16.5365298009683 }, { "maf" : 7, "p" : 0.331431495089287, "log_or" : -84.5216632496849 }, { "maf" : 6, "p" : 1.60193329738112, "log_or" : -4.26985512352161 }, { "maf" : 8, "p" : 1.38207742226304, "log_or" : 39.682558331771 }, { "maf" : 6, "p" : 1.82923311445393, "log_or" : 44.1840661362599 }, { "maf" : 5, "p" : 0.585626044417819, "log_or" : -6.22952089679665 }, { "maf" : 5, "p" : 0.329812946697179, "log_or" : 20.5647298283288 }, { "maf" : 6, "p" : 0.127423369234575, "log_or" : -60.1567893517455 }, { "maf" : 6, "p" : 0.809448260082549, "log_or" : 1.50807229761153 }, { "maf" : 4, "p" : 2.63440939264823, "log_or" : 74.458070808882 }, { "maf" : 7, "p" : 4.0451924808196, "log_or" : -25.7860928822404 }, { "maf" : 6, "p" : 2.24214404666592, "log_or" : 30.8360312419163 }, { "maf" : 8, "p" : 0.158755734141078, "log_or" : 1.61381979086434 }, { "maf" : 6, "p" : 0.16055500319411, "log_or" : -140.005645238045 }, { "maf" : 6, "p" : 0.137082403510998, "log_or" : 42.5431805029034 }, { "maf" : 6, "p" : 0.721062743557717, "log_or" : -62.7139223215 }, { "maf" : 7, "p" : 0.270371448897924, "log_or" : -13.8179435839096 }, { "maf" : 8, "p" : 0.0251972203487698, "log_or" : -59.8155375628734 }, { "maf" : 7, "p" : 1.45168934745177, "log_or" : 11.9290377594386 }, { "maf" : 5, "p" : 2.2238152729855, "log_or" : 21.5386728089216 }, { "maf" : 8, "p" : 0.543079425862626, "log_or" : 35.0635454506679 }, { "maf" : 7, "p" : 1.57423387991205, "log_or" : -14.1560827553684 }, { "maf" : 7, "p" : 0.797385134530221, "log_or" : -5.14332347668051 }, { "maf" : 11, "p" : 0.0392603291965609, "log_or" : 22.7862947643583 }, { "maf" : 7, "p" : 0.724921198190656, "log_or" : -5.58119531447547 }, { "maf" : 8, "p" : 1.56665893782938, "log_or" : 7.73204117766119 }, { "maf" : 6, "p" : 0.089595905001857, "log_or" : -10.3444517068873 }, { "maf" : 5, "p" : 1.17060394521714, "log_or" : -13.5872776271143 }, { "maf" : 4, "p" : 1.15006501740622, "log_or" : 13.3507009120158 }, { "maf" : 7, "p" : 1.02638667506674, "log_or" : -58.2056077501993 }, { "maf" : 6, "p" : 1.27053763190158, "log_or" : -31.0478936671956 }, { "maf" : 8, "p" : 0.00429988629768931, "log_or" : -31.2037718456362 }, { "maf" : 5, "p" : 0.542009714193474, "log_or" : -23.5399916713856 }, { "maf" : 5, "p" : 0.288700110681081, "log_or" : -4.68089062529934 }, { "maf" : 7, "p" : 1.90451471152527, "log_or" : -30.3838912263685 }, { "maf" : 8, "p" : 0.946276871505066, "log_or" : -47.1603919580291 }, { "maf" : 6, "p" : 0.417375708997601, "log_or" : 42.916250057148 }, { "maf" : 9, "p" : 1.41684601987416, "log_or" : 7.67600672142442 }, { "maf" : 5, "p" : 0.145235329483361, "log_or" : -33.8563414172559 }, { "maf" : 8, "p" : 0.157121118025035, "log_or" : -1.32521423647335 }, { "maf" : 9, "p" : 0.440803576691913, "log_or" : 59.7375240271191 }, { "maf" : 7, "p" : 0.174632207345988, "log_or" : 17.3166114072777 }, { "maf" : 5, "p" : 0.863626779454672, "log_or" : 15.0734403064732 }, { "maf" : 7, "p" : 0.293574273668632, "log_or" : 34.7767976023014 } ]
+
+
+</script>
+
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/GNS/preterm_viz/new/NECAP2_rare.json"></script> -->
+
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/GNS/preterm_viz/new/MED20_rare.json"></script> -->
+
+<!-- <script type="text/javascript" src="/Users/davidswanson/Documents/GNS/preterm_viz/new/test_rare.js"> -->
+
+<script type="text/javascript">
+
+// new javascript
+
+
+function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
+function toHex(n) {
+ n = parseInt(n,10);
+ if (isNaN(n)) return "00";
+ n = Math.max(0,Math.min(n,255));
+ return "0123456789ABCDEF".charAt((n-n%16)/16)
+      + "0123456789ABCDEF".charAt(n%16);
+}
+
+g_pre = d3.select("body").append("div").style("float","left")
+g = g_pre.append("svg").attr("width","800px").attr("height","800px")
+g2 = g.selectAll("circle.data").data(d5)//,function(d){return d;})
+
+var r_scale = d3.scale.linear().range([0,10]).domain([0,600*Math.random()])
+var col_scale = d3.scale.linear().range([0,255]).domain([0,600*Math.random()])
+
+//d5 = [{r:10},{r:50},{r:30},{r:10},{r:50},{r:30},{r:10},{r:50},{r:30},{r:30}]
+//g.append('text').text('blah').attr('x',dat_line[0][0][0]).attr('y',dat_line[0][0][1])}).on('mouseout',function(){d3.select(this).attr('opacity',1);})
+
+var count_d1 =0
+var count_d2 =2
+var count_d3 =1
+
+var keys_d5 = d3.keys(d5[0])
+
+p_arr = []
+maf_arr = []
+log_or_arr = []
+
+for (j=0;j<d5.length;j++){
+    p_arr.push(d5[j].p)
+    maf_arr.push(d5[j].maf)
+    log_or_arr.push(d5[j].log_or)
+}
+
+p_max = d3.max(p_arr)
+p_min = d3.min(p_arr)
+
+maf_max = d3.max(maf_arr)
+maf_min = d3.min(maf_arr)
+
+log_or_max = d3.max(log_or_arr)
+log_or_min = d3.min(log_or_arr)
+
+arr_min = [maf_min,p_min,log_or_min]
+arr_max = [maf_max,p_max,log_or_max]
+
+//p3.append('text').text('blah').attr('x',dat_line[0][0][0]).attr('y',dat_line[0][0][1])}).on('mouseout',function(){d3.select(this).attr('opacity',1);})
+
+var x_scale = d3.scale.linear().range([0,600]).domain([arr_min[count_d2],arr_max[count_d2]])   //.domain([0,600*Math.random()])
+r_scale.domain([arr_min[count_d1],arr_max[count_d1]])
+col_scale.domain([arr_min[count_d3],arr_max[count_d3]])
+
+var keys_for_show = ["maf", "-log p-val", "log OR"]
+
+var x_axis = d3.svg.axis().scale(x_scale)
+var g_axis = g.append("g").call(x_axis).attr("transform", "translate(" + 41 + "," + 41 + ")")
+
+g.append("text").attr("id","scalab").text(keys_for_show[count_d2]).attr("x",320).attr("y",22).style("font-size","150%").style("font-family","Helvetica")
+
+
+g2.enter().append("circle")
+//    .attr("class","before")
+//    .attr("style","fill:blue")
+     .attr("r",function(d,i){return d[keys_d5[count_d1]];})
+//     .attr("r",function(d,i){return -Math.log(d[keys_d5[count_d1]]);})
+//    .attr("r",function(d,i){return d.maf;})
+//    .attr("cx",function(d,i){return Math.ceil(i*5+10+d[keys_d5[count_d2]])})
+//    .attr("cy",function(d,i){return Math.ceil(i*5+10-d[keys_d5[count_d2]])})
+    .attr("cx",function(d,i){return Math.ceil(x_scale(d[keys_d5[count_d2]])+41)})
+    .attr("cy",function(d,i){return Math.ceil(i*5+70)})
+//    .style("fill",function(d,i){return ""})
+//    .style("fill",function(d,i){return "#" + rgbToHex(2*i,0.5*i,1*i)}) 
+    .style("fill",function(d,i){return "#" + rgbToHex(Math.round(col_scale(d[keys_d5[count_d3]])),0,Math.round(col_scale(d[keys_d5[count_d3]])))})
+
+
+//    .style("fill",function(d,i){return "#" + rgbToHex(60*(-Math.log(d.p)),0,60*(-Math.log(d.p)))})
+
+ //.on("mouseover",function(){d3.select(this).attr("class","before")}).on("mouseout",function(){d3.select(this).attr("class","after")})
+//maf p log_or
+
+g_bod = d3.select("body").append("div").style("float","left")
+g_bod2 = g_bod.append("svg").attr("width","500px").attr("height","500px").append('g')
+
+g_bod2.append("circle").attr("class","leg0").attr("r",2).attr('cx',18).attr('cy',20+30)
+g_bod2.append("circle").attr("class","leg1").attr("r",6).attr('cx',18).attr('cy',50+30)
+g_bod2.append("circle").attr("class","leg2").attr("r",10).attr('cx',18).attr('cy',90+30)
+
+g_bod2.append("rect").attr("class","rec0").attr('height',20).attr('width',20).attr('x',10).attr('y',150+30).attr("fill","rgb(0.0.0)")
+g_bod2.append("rect").attr("class","rec1").attr('height',20).attr('width',20).attr('x',10).attr('y',185+30).attr("fill","rgb(126,0,126)")
+g_bod2.append("rect").attr("class","rec2").attr('height',20).attr('width',20).attr('x',10).attr('y',220+30).attr("fill","rgb(255,0,255)")
+
+//g_bod2.append("text").attr("id","circ0").text("location: " + keys_d5[count_d2]).attr("x",10).attr("y",5).style("font-size","130%").style("font-family","Helvetica")
+
+g_bod2.append("text").attr("id","circlab").text("SIZE: "+ keys_for_show[count_d1]).attr("x",10).attr("y",35).style("font-size","130%").style("font-family","Helvetica")
+g_bod2.append("text").attr("id","reclab").text("COLOR: "+ keys_for_show[count_d3]).attr("x",10).attr("y",164).style("font-size","130%").style("font-family","Helvetica")
+
+g_bod2.append("text").attr("id","circ0").text(Math.round((arr_min[count_d1]))).style("font-size","110%").attr("x",35).attr("y",25+30)
+g_bod2.append("text").attr("id","circ1").text(Math.round((arr_min[count_d1] + arr_max[count_d1])/2)).style("font-size","110%").attr("x",35).attr("y",55+30)
+g_bod2.append("text").attr("id","circ2").text(Math.round((arr_max[count_d1]))).style("font-size","110%").attr("x",35).attr("y",95+30)
+g_bod2.append("text").attr("id","rec0").text(Math.round((arr_min[count_d3]))).style("font-size","110%").attr("x",35).attr("y",163+30)
+g_bod2.append("text").attr("id","rec1").text(Math.round((arr_min[count_d3] + arr_max[count_d3])/2)).style("font-size","110%").attr("x",35).attr("y",198+30)
+g_bod2.append("text").attr("id","rec2").text(Math.round(arr_max[count_d3])).style("font-size","110%").attr("x",35).attr("y",233+30)
+
+
+var x_scale = d3.scale.linear().range([0,600]).domain([arr_min[count_d2],arr_max[count_d2]])   //.domain([0,600*Math.random()])
+r_scale.domain([arr_min[count_d1],arr_max[count_d1]])
+col_scale.domain([arr_min[count_d3],arr_max[count_d3]])
+
+
+
+// r keys_d5[count_d1]
+// loc keys_d5[count_d2]
+// col keys_d5[count_d3]
+
+g_bod2.attr("transform","translate(30,30)")
+
+b_arr = []
+for(var jj=0;jj<3;jj++){
+    b_arr.push(jj)
+}
+
+text_arr = ['size','pos','loc']
+
+// g.selectAll("circle#legend1").data([b_arr[0]]).enter().append("circle")
+//     .attr("r",function(d,i){return i*15+5;})
+//     .attr("cx",function(d,i){return 500;})
+//     .attr("cy",function(d,i){return 50*i+100;})
+
+
+// g.selectAll("text.legend").data(b_arr).enter().append("text")
+//     .text(function(d,i){return text_arr[i];})
+//     .attr("x",function(d,i){return 540;})
+//     .attr("y",function(d,i){return 50*i+110;})
+
+
+//g_svg = g.append("svg").attr("height",400).attr("width",400)
+
+// associated with size
+function david1(){
+    count_d1 = (count_d1 + 1)%3
+    r_scale.domain([arr_min[count_d1],arr_max[count_d1]])
+    g2.transition().ease("linear").duration(500).delay(20)
+     .attr("r",function(d,i){return r_scale(d[keys_d5[count_d1]]+0.0001);})
+//     .attr("r",function(d,i){return r_scale(Math.abs(d[keys_d5[count_d1]]+0.0001));})
+//     var blah = (blah+1)%3
+//     .attr("r",function()   -Math.log
+//     .attr("r",function()
+//     .attr("r",function()
+//     .style("fill",function()
+//     .style("fill",function(d,i){return "#" + rgbToHex(60*(-Math.log(d.p)),0,60*(-Math.log(d.p)))}) 
+//    sma = arr_min[count_d1]
+//    med = (arr_min[count_d1]+arr_max[count_d1])/2
+//    bi = arr_max[count_d1]
+
+g_bod2.select("text#circ0").transition().duration(1000).text(Math.round((arr_min[count_d1])))
+g_bod2.select("text#circ1").transition().duration(1000).text(Math.round((arr_min[count_d1] + arr_max[count_d1])/2))
+g_bod2.select("text#circ2").transition().duration(1000).text(Math.round((arr_max[count_d1])))
+
+g_bod2.select("text#circlab").transition().duration(1000).text("SIZE: " + keys_for_show[count_d1])
+
+}
+
+// associated with position
+function david2(){
+    count_d2 = (count_d2 + 1)%3
+    x_scale.domain([arr_min[count_d2],arr_max[count_d2]])
+    g2.transition().ease("linear").duration(500).delay(20)
+    .attr("cx",function(d,i){return Math.ceil(x_scale(d[keys_d5[count_d2]])+41)})
+    .attr("cy",function(d,i){return Math.ceil(i*5+70)})
+//     .attr("r",function() // -x_scale(d[keys_d5[count_d2]])
+//     .attr("r",function()
+//     .attr("r",function()
+//     .style("fill",function()
+//     .style("fill",function(d,i){return "#" + rgbToHex(60*(-Math.log(d.p)),0,60*(-Math.log(d.p)))}) 
+    x_axis.scale(x_scale)
+    g_axis.transition().duration(1000).call(x_axis)
+    g.select("text#scalab").transition().duration(500).text(keys_for_show[count_d2])
+
+}
+
+
+function david3(){
+    count_d3 = (count_d3 + 1)%3
+//     .attr("r",function(d,i){return -Math.log(d.p);})
+//     .attr("r",function()
+//     .attr("r",function()
+//     .attr("r",function()
+//     .style("fill",function()
+//     .style("fill",function(d,i){return "#" + rgbToHex(60*(-Math.log(d.p)),0,60*(-Math.log(d.p)))}) 
+	col_scale.domain([arr_min[count_d3],arr_max[count_d3]])
+	console.log([arr_min[count_d3],arr_max[count_d3]])
+//console.log("#" + rgbToHex(Math.round(col_scale(d5[0][keys_d5[count_d3]])),0,Math.round(col_scale(d5[0][keys_d5[count_d3]]))))
+    g2.transition().ease("linear").duration(500).delay(20)
+     .style("fill",function(d,i){return "#" + rgbToHex(Math.round(col_scale(d[keys_d5[count_d3]])),0,Math.round(col_scale(d[keys_d5[count_d3]])))})
+
+g_bod2.select("text#rec0").transition().duration(1000).text(Math.round((arr_min[count_d3])))
+g_bod2.select("text#rec1").transition().duration(1000).text(Math.round((arr_min[count_d3] + arr_max[count_d3])/2))
+g_bod2.select("text#rec2").transition().duration(1000).text(Math.round((arr_max[count_d3])))
+
+g_bod2.select("text#reclab").transition().duration(1000).text("COLOR: " + keys_for_show[count_d3])
+
+}
+
+
+// function david4(){
+// //    x_scale.domain([0,600*Math.random()])
+// //    x_axis.scale(x_scale).transition().duration(1000)
+//     x_axis.scale(x_scale)
+//     g_axis.transition().duration(1000).call(x_axis)
+// //    g_axis.call(x_axis)
+// }
+
+
+
+//d5 = [{r:80},{r:20},{r:60},{r:40},{r:20},{r:60},{r:50},{r:20},{r:60},{r:70},{r:10}]
+//d5 = [{r:80},{r:20},{r:60},{r:40},{r:20},{r:60},{r:50}]//,{r:20},{r:60},{r:70},{r:10}]
+
+
+
+////// used to be used
+
+// g2 = g.selectAll("circle").data(d5)//,function(d){return d;})
+
+// g2.enter().append('circle')
+// //    .attr("class","before")
+//     .attr("r",function(d,i){return d.r;}).transition().ease("linear").duration(1000).delay(200)
+//     .attr("cx",function(d,i){return Math.ceil(i*60+10)})
+//     .attr("cy",function(d,i){return Math.ceil(i*60+10)})
+
+
+// g2.transition().ease("linear").duration(1000).delay(200)
+//     .attr("class","after")
+//     .attr("r",function(d,i){return d.r;}).transition().ease("linear").duration(1000).delay(200)
+//     .attr("cx",function(d,i){return Math.ceil(i*60+10)})
+//     .attr("cy",function(d,i){return Math.ceil(i*60+10)})
+//     .on("mouseover",function(){d3.select(this).attr("class","after")}).on("mouseout",function(){d3.select(this).attr("class","before")})
+
+
+
+// g2.exit().transition().ease("linear").duration(1000).remove()
+
+// //.enter().append("circle")//
+
+
+
+
+// x_ax = d3.scale.linear().range([0,400])//.tickSize(5, 3, 1)
+
+
+// xAxis = d3.svg.axis().scale(x_ax).tickSize(5, 3, 1)
+
+
+// xcon = g.append("g")
+// //   .attr("class", "y axis")
+//    .attr("transform", "translate(" + 100 + "," + 100 + ")")
+//    .call(xAxis);
+
+
+
+// //ycon.append("text").attr("class", "label").attr("x", 0).attr("y", 0)
+//  //    .attr("dy", "-2.5em").attr("text-anchor", "middle")
+//   //   .text(ylab)
+//    //  .attr("transform", "rotate(-90) translate(-" +
+//      //    parseFloat(ph / 2) + "," + 0 + ")");
+
+
+// xcon.append("text")
+//    // .attr("class", "label").attr("x", pw / 2)
+//     .attr("y", 0).attr("dy", "+2.5em")
+//     .attr("text-anchor", "middle")
+//    // .text(xlab);
+
+
+
+//   // var x = d3.scale.linear().range([0, pw]),
+//   //     y = d3.scale.linear().range([ph, 0]),
+//   //     xAxis = d3.svg.axis().scale(x).tickSize(5, 3, 1)
+//   //     yAxis = d3.svg.axis().scale(y).tickSize(5, 3, 1).orient("left");
+
+
+//   // // initialize the domains of x and y
+//   // // the domain of x will be the same throughout : [0, 1], but y's will change
+//   // x.domain([0, 1]);
+//   // y.domain([0, 1]);
+
+//   // // initialize the g elements inside the svg container for x and y 
+//   // // axes, and also for the plot itself. We are also calling the 
+//   // // axis functions on the containers to keep track of domain changes, 
+//   // // d3 shines here
+
+//   // var ycon = svg.append("g")
+//   //   .attr("class", "y axis")
+//   //   .attr("transform", "translate(" + m.l + "," + m.t + ")")
+//   //   .call(yAxis);
+
+//   // // add the label to the y axis
+//   // ycon.append("text").attr("class", "label").attr("x", 0).attr("y", 0)
+//   //     .attr("dy", "-2.5em").attr("text-anchor", "middle")
+//   //     .text(ylab)
+//   //     .attr("transform", "rotate(-90) translate(-" +
+//   //         parseFloat(ph / 2) + "," + 0 + ")");
+
+
+
+
+
+
+</script>
+
+
+</div>
+
+</body>
+
+
+
+
+</html>
+
+<!-- ASDFASDFASDFASDF -->
+
+<!-- <input type="number" name="number" id="number"> -->
+
+<!-- <!DOCTYPE html> -->
+
+<!-- <html> -->
+
+<!-- <header> -->
+
+
+
+<!-- <\!-- <a href="moves.html" id="" title="moves">moves</a> -\-> -->
+
+<!--     <\!-- /Users/davidswanson/Downloads -\-> -->
+<!-- <script type="text/javascript" src="/Users/davidswanson/Clean_Desktop/dashing d3/d3.v2.min.js"></script> -->
+
+
+<!-- </header> -->
+
+
+<!-- <body> -->
+
+
+<!-- <input type="number" name="number" id="number"> -->
+
+
+<!-- <button onclick=func()> hello </button> -->
+
+<!-- <script type="text/javascript" src="/Users/davidswanson/Downloads/test_graph.js"></script> -->
+<!-- <\!-- <script type="text/javascript" src="/Users/davidswanson/Clean_Desktop/dashing d3/moves_func.js"></script> -\-> -->
+
+
+
+<!-- </body> -->
+<!-- </html> -->
